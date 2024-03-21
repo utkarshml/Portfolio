@@ -1,0 +1,34 @@
+// Beginner 
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-beginner">
+        <div class="portfolio-wrap">
+          <img src="./img/SurveyForm.png" class="img-fluid" alt="SurveyForm">
+          <div class="portfolio-links">
+            <a href="./img/SurveyForm.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="SurveyForm"><i class="uil uil-apps"></i></a>
+          </div>
+        </div>
+      </div>
+
+//  Intermediate 
+
+     <div class="col-lg-4 col-md-6 portfolio-item filter-intermidiate">
+        <div class="portfolio-wrap">
+          <img src="./img/BackendByNode.jpeg" class="img-fluid" alt="BackendByNode">
+          <div class="portfolio-links">
+            <a href="./img/BackendByNode.jpeg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="BackendByNode"><i class="uil uil-apps"></i></a>
+    
+          </div>
+        </div>
+      </div>
+
+//  Advance
+
+     <div class="col-lg-4 col-md-6 portfolio-item filter-advance">
+        <div class="portfolio-wrap">
+          <img src="./img/Web capture_8-7-2023_94721_myportfolio-cttl.onrender.com.jpeg" class="img-fluid" alt="this_portfolio">
+          <div class="portfolio-links">
+            <a href="./img/Web capture_8-7-2023_94721_myportfolio-cttl.onrender.com.jpeg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="My Portfolio"><i class="uil uil-apps"></i></a>
+    
+          </div>
+        </div>
+      </div>
