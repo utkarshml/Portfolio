@@ -174,10 +174,7 @@ function type() {
     setTimeout(erase, newTextDelay);
   }
 }
-const alert = document.getElementsByClassName("alerts");
-setTimeout(function(){
-  alert[0].style.display = "none";
-},3000)
+
 function erase() {
   if (charIndex > 0) {
     if (!cursorSpan.classList.contains("typing"))

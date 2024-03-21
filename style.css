@@ -319,6 +319,14 @@ nav ul li .nav-links:hover {
   margin: 0 auto!important;
 }
 
+@media only screen and (max-width: 992px) {
+  .skill-container {
+    background-color: hsla(250, 25%, 34%, 0.16);
+    width: 100%!important;
+    margin: 0 auto!important;
+  }
+}
+
 .skill-container .progress-div {
   margin: 2rem 0;
 }
