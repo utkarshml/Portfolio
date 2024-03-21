@@ -325,7 +325,9 @@ nav ul li .nav-links:hover {
     width: 100%!important;
     margin: 0 auto!important;
   }
+
 }
+
 
 .skill-container .progress-div {
   margin: 2rem 0;
@@ -1389,7 +1391,6 @@ h2 {
     margin: 4px 0 0 0;
     z-index: 14;
     line-height: 1em;
-    vertical-align: middle;
     color: #fff;
   }
   
@@ -1417,6 +1418,11 @@ h2 {
     -moz-box-shadow: 0 0 1px rgba(0,0,0,0.20);
     box-shadow: 0 0 1px rgba(0,0,0,0.20);
     z-index: 15;
+  }
+  @media only screen and (max-width: 760px) {
+    .desc{
+      box-shadow: none;
+    }
   }
   
   .direction-l .desc,
