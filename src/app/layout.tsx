@@ -15,8 +15,11 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  title: "Caldera — Pixelated Cyber-Playground",
+  title: "Utkarsh Jaiswal",
   description: "Experience the high-contrast digital arcade aesthetic of Caldera. Bold typography, vibrant accents, and solid blocks.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({

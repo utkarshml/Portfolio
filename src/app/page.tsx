@@ -46,13 +46,14 @@ const PROJECTS_DATA = [
       "Route Matrix Compilations: Automatically aggregates transit schedules and layouts."
     ],
     techStack: ["Next.js", "FastAPI", "Gemini AI", "PostgreSQL"],
-    githubUrl: "https://github.com",
+    githubUrl: "https://www.aimargdarshak.in/",
     tabs: [
+      { id: "preview", label: "IMAGE" },
       { id: "diagram", label: "DIAGRAM" },
       { id: "logs", label: "LOGS" },
       { id: "performance", label: "PERFORMANCE" }
     ],
-    defaultTab: "diagram"
+    defaultTab: "preview"
   },
   {
     id: 1,
@@ -66,53 +67,34 @@ const PROJECTS_DATA = [
       "Error Clusters: Maps common logical bugs dynamically inside a vector space model."
     ],
     techStack: ["React", "Node.js", "Vector DB", "LLMs"],
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/Utkarshml/algo-scribe",
     tabs: [
+      { id: "preview", label: "IMAGE" },
       { id: "plot", label: "HINT PARSER" },
       { id: "scores", label: "VECTOR CLUSTER" },
       { id: "latency", label: "METRIC FEED" }
     ],
-    defaultTab: "plot"
+    defaultTab: "preview"
   },
   {
     id: 2,
-    title: "STATROUTE",
-    badge: "HEALTHCARE EMERGENCY",
+    title: "MESS MANAGEMENT APP",
+    badge: "MESS MANAGEMENT",
     color: "cyber-violet",
-    tagline: "Durable multi-agent emergency dispatcher tracking hospital allocations.",
-    description: "An emergency healthcare coordination platform helping hospitals locate critical resources, room allocations, and dispatch routes in real-time.",
+    tagline: "React Native mobile application managing mess facility operations and attendance.",
+    description: "A mobile application for managing menu planning, automated billing, tracking attendance, and records using Appwrite backend solutions.",
     highlights: [
-      "Durable Agent Dispatches: Autonomous multi-agent nodes coordinate requests between hospitals.",
-      "Sub-Millisecond Resource Syncs: Real-time inventory tracking utilizing event logs."
+      "Attendance & Records Track: Finished features for menu planning, tracking attendance, billing automatically.",
+      "Scalable Serverless System: Designed a backend system that can grow using Appwrite Backend-as-a-Service solutions."
     ],
-    techStack: ["FastAPI", "AI Agents", "Real-Time Systems"],
-    githubUrl: "https://github.com",
+    techStack: ["React Native", "Appwrite", "Expo", "TypeScript", "Vision API"],
+    githubUrl: "https://github.com/utkarshml/Mess_management_app",
     tabs: [
       { id: "stats", label: "DISPATCH RATE" },
       { id: "comparison", label: "LATENCY SPEEDUP" },
       { id: "router", label: "COORDINATOR MAP" }
     ],
     defaultTab: "stats"
-  },
-  {
-    id: 3,
-    title: "CACHEMESH",
-    badge: "EDGE COMPLETION CACHE",
-    color: "digital-orange",
-    tagline: "WASM-based edge caching proxy mitigating backend query bottlenecks.",
-    description: "A proxy script deployed close to clients that caches LLM response paths. Leverages quick cache evictions and token-budget throttles to prevent api overflow.",
-    highlights: [
-      "Sub-Millisecond Read Paths: Resolves repeat queries at edge nodes without hits to back-end endpoints.",
-      "Token Rate-Limiting: Enforces quota usage buckets utilizing Redis-based sliding-window locks."
-    ],
-    techStack: ["Wasm", "Cloudflare Workers", "Redis", "Rust"],
-    githubUrl: "https://github.com",
-    tabs: [
-      { id: "cache", label: "SPEED GAUGE" },
-      { id: "comparison", label: "LATENCY BARS" },
-      { id: "router", label: "ROUTING MAP" }
-    ],
-    defaultTab: "cache"
   }
 ];
 
@@ -176,59 +158,39 @@ const TECH_SLOTS_DATA = [
 const EXPERIENCE_DATA = [
   {
     id: 0,
-    company: "COGNITIVE SYSTEMS",
-    role: "AI Lead Architect",
-    period: "2024 - PRESENT",
-    location: "SF / REMOTE",
+    company: "ADGURILLA",
+    role: "Full Stack Developer Intern",
+    period: "FEB 2026 - PRESENT",
+    location: "REMOTE",
     color: "cyber-violet",
-    tagline: "Led deployment of multi-agent orchestration frameworks and neural indexing modules.",
+    tagline: "Contributed to clean architectures, scalable backend monorepos, and responsive Next.js interfaces.",
     responsibilities: [
-      "Engineered culture-aware RAG pipelines using Gemini AI and custom embeddings, cutting response latency by 35%.",
-      "Pioneered vector-space semantic routing handlers, driving down processing overhead costs by $12k/month.",
-      "Spearheaded multi-agent orchestrator prototypes, coordinating complex data processing loops asynchronously."
+      "Built and maintained frontend interfaces using Next.js, ensuring responsive design and seamless user experience.",
+      "Contributed to building scalable backend services using Node.js and TypeScript, following Domain-Driven Design (DDD), Clean Architecture, and a Monorepo structure.",
+      "Collaborated across the full stack to integrate frontend and backend systems, ensuring type-safe APIs and maintainable codebase structure."
     ],
-    skills: ["Gemini AI", "FastAPI", "Vector Databases", "LangChain", "Kubernetes"],
+    skills: ["Next.js", "React.js", "Node.js", "TypeScript", "Clean Architecture", "DDD", "Monorepo"],
     metrics: [
-      { name: "LATENCY IMPROVEMENT", value: "35%", color: "text-cyber-violet" },
-      { name: "AGENT ACCURACY", value: "98.4%", color: "text-pixel-glare" }
+      { name: "ARCHITECTURE DESIGN", value: "DDD", color: "text-cyber-violet" },
+      { name: "CODE SAFETY", value: "TYPE-SAFE", color: "text-pixel-glare" }
     ]
   },
   {
     id: 1,
-    company: "QUANTUM STUDIOS",
-    role: "Senior Full Stack Dev",
-    period: "2022 - 2024",
-    location: "HYBRID",
+    company: "PERSIST VENTURE",
+    role: "Backend Developer Intern",
+    period: "2024",
+    location: "REMOTE",
     color: "digital-orange",
-    tagline: "Designed high-throughput web frontends and microservice communication bridges.",
+    tagline: "Developed robust backend API endpoints, user dashboards, and interactive visual widgets.",
     responsibilities: [
-      "Architected Next.js 14 serverless interfaces for heavy traffic applications serving 1.2M+ users weekly.",
-      "Created sub-millisecond database cache layers in Redis, eliminating redundant SQL query bottlenecks.",
-      "Optimized build systems using Webpack/Turbopack, shrinking JS bundle payloads by 42%."
+      "Developed and improved backend APIs for admin dashboard including user management and post management with data visualization features.",
+      "Integrated RESTful APIs with the frontend team and built responsive admin UI components using React.js based on Figma design specifications."
     ],
-    skills: ["Next.js", "React", "Node.js", "Redis", "TypeScript", "Tailwind CSS"],
+    skills: ["Node.js", "React.js", "RESTful APIs", "Data Visualization", "Figma"],
     metrics: [
-      { name: "BUNDLE SIZE REDUCTION", value: "42%", color: "text-digital-orange" },
-      { name: "ACTIVE TRAFFIC", value: "1.2M+", color: "text-pixel-glare" }
-    ]
-  },
-  {
-    id: 2,
-    company: "APEX SOLUTIONS",
-    role: "Core Platform Engineer",
-    period: "2020 - 2022",
-    location: "ON-SITE",
-    color: "cyber-violet",
-    tagline: "Maintained fault-tolerant backend architectures and streaming data pipelines.",
-    responsibilities: [
-      "Designed event-driven messaging topologies using Kafka, managing over 50M records per day.",
-      "Re-engineered PostgreSQL schema indexing configurations, improving analytical load queries by 2.4x.",
-      "Implemented rigid CI/CD testing suites reducing deploy failure rates from 8% to less than 1%."
-    ],
-    skills: ["Python", "FastAPI", "PostgreSQL", "Apache Kafka", "Docker", "AWS"],
-    metrics: [
-      { name: "QUERY THROUGHPUT", value: "2.4x", color: "text-cyber-violet" },
-      { name: "DEPLOY RELIABILITY", value: "99.2%", color: "text-pixel-glare" }
+      { name: "API STABILITY", value: "EXCELLENT", color: "text-digital-orange" },
+      { name: "UI FIDELITY", value: "FIGMA SYNC", color: "text-pixel-glare" }
     ]
   }
 ];
@@ -236,23 +198,23 @@ const EXPERIENCE_DATA = [
 const ACHIEVEMENTS_DATA = [
   {
     id: 0,
-    title: "1ST PLACE - SMART CITY HACKATHON",
-    description: "Led a team of 4 to design a real-time smart grid route coordinator matching active demand nodes.",
-    metric: "COMPETITORS: 120+ TEAMS",
+    title: "TOP 10 - OSS.GG HACKATHON",
+    description: "Ranked in the top 10 winners out of 4000+ global participants in the OSS.gg Hackathon 2024.",
+    metric: "OSS.GG WINNER",
     color: "cyber-violet"
   },
   {
     id: 1,
-    title: "OPEN SOURCE CORE CONTRIBUTOR",
-    description: "Contributed performance optimizations and search index configurations to FastAPI RAG frameworks.",
-    metric: "1.2K+ GITHUB STARS",
+    title: "HACK'O GRAVITY RUNNER-UP",
+    description: "Awarded 2nd runner-up place in the Hack'O Gravity Hackathon for advanced product design.",
+    metric: "2ND RUNNER-UP",
     color: "digital-orange"
   },
   {
     id: 2,
-    title: "STATE SYSTEM REDESIGN INITIATIVE",
-    description: "Re-engineered memory scopes for complex React rendering nodes, eliminating key layout state leaks.",
-    metric: "40% CPU OPTIMIZATION",
+    title: "UNICEF YOUTH IMPACT 3.0",
+    description: "Secured 3rd place in UNICEF Youth Impact Challenge 3.0, building community-driven impact solutions.",
+    metric: "3RD PLACE",
     color: "cyber-violet"
   }
 ];
@@ -260,27 +222,19 @@ const ACHIEVEMENTS_DATA = [
 const CERTIFICATIONS_DATA = [
   {
     id: 0,
-    title: "AWS SOLUTIONS ARCHITECT",
-    issuer: "Amazon Web Services",
-    date: "2025",
-    verificationHash: "SHA-256: 8C19-FF31-9A2E",
+    title: "GENAI FOR ALL",
+    issuer: "Infosys",
+    date: "2024",
+    verificationHash: "VERIFIED: INFOSYS",
     color: "digital-orange"
   },
   {
     id: 1,
-    title: "CERTIFIED KUBERNETES ADMIN (CKA)",
-    issuer: "The Linux Foundation",
+    title: "PYTHON ESSENTIAL",
+    issuer: "LinkedIn",
     date: "2024",
-    verificationHash: "SHA-256: B42A-D002-19EF",
+    verificationHash: "VERIFIED: LINKEDIN",
     color: "cyber-violet"
-  },
-  {
-    id: 2,
-    title: "PROFESSIONAL CLOUD ARCHITECT",
-    issuer: "Google Cloud",
-    date: "2023",
-    verificationHash: "SHA-256: 3F9E-874C-1A39",
-    color: "digital-orange"
   }
 ];
 
@@ -298,17 +252,21 @@ export default function Home() {
   const [contactMessage, setContactMessage] = useState("");
   const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
-  const handleContactSubmit = async (e: React.FormEvent) => {
+  const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!contactName || !contactEmail || !contactMessage) return;
-    setFormStatus("sending");
-    setTimeout(() => {
-      setFormStatus("success");
-      setContactName("");
-      setContactEmail("");
-      setContactMessage("");
-      setTimeout(() => setFormStatus("idle"), 4000);
-    }, 1500);
+    
+    const subject = encodeURIComponent(`Portfolio Contact from ${contactName}`);
+    const body = encodeURIComponent(`Name: ${contactName}\nEmail: ${contactEmail}\n\nMessage:\n${contactMessage}`);
+    
+    // Redirect to mail client
+    window.location.href = `mailto:utkarsh.official.dev@gmail.com?subject=${subject}&body=${body}`;
+    
+    setFormStatus("success");
+    setContactName("");
+    setContactEmail("");
+    setContactMessage("");
+    setTimeout(() => setFormStatus("idle"), 4000);
   };
 
   const roles = [
@@ -398,10 +356,9 @@ export default function Home() {
   // State hooks for Project Interactive Cabinet / Gallery
   const [activeProject, setActiveProject] = useState<number>(0);
   const [projectTabs, setProjectTabs] = useState<Record<number, string>>({
-    0: "diagram",
-    1: "plot",
-    2: "stats",
-    3: "cache"
+    0: "preview",
+    1: "preview",
+    2: "stats"
   });
 
   const setProjectTab = (projectId: number, tabId: string) => {
@@ -445,6 +402,17 @@ export default function Home() {
 
   const renderConsoleContent = (projectId: number, tabId: string) => {
     if (projectId === 0) {
+      if (tabId === "preview") {
+        return (
+          <div className="w-full h-full relative overflow-hidden rounded bg-abyssal-ink/50 flex items-center justify-center">
+            <img
+              src="/aimargdarshak.png"
+              alt="AI Margdarshak Preview"
+              className="w-full h-full object-contain rounded border border-pure-white/10"
+            />
+          </div>
+        );
+      }
       if (tabId === "diagram") {
         return (
           <div className="w-full h-full flex flex-col justify-between relative py-4">
@@ -521,6 +489,17 @@ export default function Home() {
     }
 
     if (projectId === 1) {
+      if (tabId === "preview") {
+        return (
+          <div className="w-full h-full relative overflow-hidden rounded bg-abyssal-ink/50 flex items-center justify-center">
+            <img
+              src="/algoscribe.png"
+              alt="Algo Scribe Preview"
+              className="w-full h-full object-contain rounded border border-pure-white/10"
+            />
+          </div>
+        );
+      }
       if (tabId === "plot") {
         return (
           <div className="w-full h-full flex flex-col justify-between py-4 font-mono text-[9px] text-pure-white">
@@ -832,11 +811,13 @@ export default function Home() {
                 stiffness: 140,
                 damping: 22,
               }}
-              href="mailto:utkarshjaiswal.work@gmail.com"
+              href="https://drive.google.com/file/d/1-WdOJNZao_9Aq0KUGJgLA22KEM-67_E-/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               className={`bg-digital-orange text-pure-white font-medium rounded-buttons hover:brightness-105 active:scale-[0.98] transition-all font-body flex items-center gap-8 border border-transparent shadow-[4px_4px_0px_0px_#070607] ${isScrolled ? "py-12 px-24 text-body-sm" : "py-12 px-24 text-body-sm"
                 }`}
             >
-              Get In Touch <ArrowRight size={14} />
+              Resume <ArrowRight size={14} />
             </motion.a>
           </div>
         </div>
@@ -857,7 +838,7 @@ export default function Home() {
 
             {/* Display Headings */}
             <h1 className="text-display font-display text-center lg:text-left text-abyssal-ink uppercase select-none tracking-tight leading-[0.9] text-[50px] sm:text-[88px] lg:text-[130px]">
-              BUILDING <span className="text-digital-orange">AI</span> PRODUCTS <br />
+              BUILDING <span className=" text-pixel-glare lg:text-digital-orange">AI</span> PRODUCTS <br />
               THAT SOLVE REAL PROBLEMS
             </h1>
 
@@ -1390,6 +1371,56 @@ export default function Home() {
                           </span>
                         ))}
                       </div>
+
+                      {/* Interactive View Panel on Mobile */}
+                      <div className="flex flex-col gap-8 pt-16 border-t border-abyssal-ink/10">
+                        <span className="text-[10px] font-mono font-bold text-abyssal-ink/65 uppercase tracking-wider">// INTERACTIVE VIEW</span>
+                        <div className="bg-pure-white border-2 border-abyssal-ink rounded-[12px] p-12 flex flex-col justify-between shadow-[3px_3px_0px_0px_#070607] min-h-[220px]">
+                          {/* Tab Navigation */}
+                          <div className="flex items-center gap-6 border-b border-abyssal-ink/10 pb-8 mb-8 overflow-x-auto whitespace-nowrap scrollbar-none">
+                            {project.tabs.map((tab) => {
+                              const isSelected = (projectTabs[project.id] || project.defaultTab) === tab.id;
+                              return (
+                                <button
+                                  key={tab.id}
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setProjectTab(project.id, tab.id);
+                                  }}
+                                  className={`px-8 py-3 rounded-buttons font-mono text-[9px] font-bold border transition-all ${isSelected
+                                    ? isViolet
+                                      ? "bg-cyber-violet text-pure-white border-abyssal-ink shadow-[1px_1px_0px_0px_#070607]"
+                                      : "bg-digital-orange text-pure-white border-abyssal-ink shadow-[1px_1px_0px_0px_#070607]"
+                                    : "bg-ash-white border-abyssal-ink/20 text-abyssal-ink/60 hover:bg-basalt-canvas"
+                                    }`}
+                                >
+                                  {tab.label.toUpperCase()}
+                                </button>
+                              );
+                            })}
+                          </div>
+
+                          {/* Dynamic Content Console */}
+                          <div className="h-[220px] w-full bg-abyssal-ink rounded-[8px] border border-abyssal-ink/30 relative flex flex-col justify-between p-12 overflow-hidden">
+                            {renderConsoleContent(project.id, projectTabs[project.id] || project.defaultTab)}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Source Link */}
+                      <div className="pt-12 border-t border-abyssal-ink/10 flex justify-end">
+                        <a 
+                          href={project.githubUrl} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          onClick={(e) => e.stopPropagation()}
+                          className={`inline-flex items-center gap-6 font-mono text-[11px] font-bold ${isViolet ? "text-cyber-violet hover:text-digital-orange" : "text-digital-orange hover:text-cyber-violet"
+                            } transition-colors`}
+                        >
+                          <span>SOURCE</span>
+                          <ExternalLink size={12} />
+                        </a>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -1785,14 +1816,14 @@ export default function Home() {
                           // MEM_BLOCK_01
                         </span>
                         <span className="font-mono text-[9px] text-cyber-violet bg-cyber-violet/5 border border-cyber-violet/20 px-8 py-1 rounded">
-                          2018 - 2022
+                          2023 - 2026
                         </span>
                       </div>
-                      <h3 className="font-display text-[17px] font-bold text-abyssal-ink leading-tight uppercase mt-4">
-                        B.Tech in Computer Science
+                      <h3 className="font-display text-[16px] font-bold text-abyssal-ink leading-tight uppercase mt-4">
+                        B.Tech in CSE
                       </h3>
                       <p className="font-body text-[12px] text-abyssal-ink/80 font-medium">
-                        National Institute of Technology
+                        Kamla Nehru Institute of Technology, Sultanpur
                       </p>
                     </div>
 
@@ -1803,14 +1834,14 @@ export default function Home() {
                           // MEM_BLOCK_02
                         </span>
                         <span className="font-mono text-[9px] text-digital-orange bg-digital-orange/5 border border-digital-orange/20 px-8 py-1 rounded">
-                          2023
+                          2019 - 2022
                         </span>
                       </div>
-                      <h3 className="font-display text-[17px] font-bold text-abyssal-ink leading-tight uppercase mt-4">
-                        Executive AI Certification
+                      <h3 className="font-display text-[16px] font-bold text-abyssal-ink leading-tight uppercase mt-4">
+                        Diploma in Civil Engg
                       </h3>
                       <p className="font-body text-[12px] text-abyssal-ink/80 font-medium">
-                        Stanford Center for Professional Development
+                        Government Polytechnic Shahabad, Rampur
                       </p>
                     </div>
 
@@ -1996,7 +2027,7 @@ export default function Home() {
             </div>
 
             <a
-              href="mailto:utkarshjaiswal.work@gmail.com"
+              href="mailto:utkarsh.official.dev@gmail.com"
               className="bg-digital-orange text-pure-white font-medium rounded-full py-12 px-24 font-body text-body-sm w-fit font-bold hover:brightness-105 transition-all flex items-center gap-8 mt-24 self-start"
             >
               Book A Call <ArrowRight size={14} />
@@ -2008,7 +2039,7 @@ export default function Home() {
             {/* Social Icons Row */}
             <div className="flex flex-wrap gap-12 items-center justify-start lg:justify-end">
               <a
-                href="https://github.com"
+                href="https://github.com/Utkarshml"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-[100px] h-[100px] rounded-full bg-digital-orange text-pure-white flex items-center justify-center transition-all duration-300 hover:scale-110 hover:-translate-y-1 shadow-[2px_2px_8px_rgba(252,80,0,0.2)]"
@@ -2018,7 +2049,7 @@ export default function Home() {
                 </svg>
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/utkarshml"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-[100px] h-[100px] rounded-full bg-digital-orange text-pure-white flex items-center justify-center transition-all duration-300 hover:scale-110 hover:-translate-y-1 shadow-[2px_2px_8px_rgba(252,80,0,0.2)]"
@@ -2028,13 +2059,13 @@ export default function Home() {
                 </svg>
               </a>
               <a
-                href="mailto:utkarshjaiswal.work@gmail.com"
+                href="mailto:utkarsh.official.dev@gmail.com"
                 className="w-[100px] h-[100px] rounded-full bg-digital-orange text-pure-white flex items-center justify-center transition-all duration-300 hover:scale-110 hover:-translate-y-1 shadow-[2px_2px_8px_rgba(252,80,0,0.2)]"
               >
                 <Mail size={50} />
               </a>
               <a
-                href="https://x.com"
+                href="https://x.com/utkarshJais"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-[100px] h-[100px] rounded-full bg-digital-orange text-pure-white flex items-center justify-center transition-all duration-300 hover:scale-110 hover:-translate-y-1 shadow-[2px_2px_8px_rgba(252,80,0,0.2)]"
