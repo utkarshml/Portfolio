@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-basalt-canvas: #e2e2df;
+  --color-ash-white: #f7f6f2;
+  --color-abyssal-ink: #070607;
+  --color-pure-white: #ffffff;
+  --color-digital-orange: #fc5000;
+  --color-cyber-violet: #524ae9;
+  --color-pixel-glare: #f5f28e;
+
+  /* Typography */
+  --font-sans-serif: 'sans-serif', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-pp-neue-corp-compact-ultrabold: var(--font-bebas-neue), 'PP Neue Corp Compact Ultrabold', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-dm-sans: var(--font-dm-sans), 'DM Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Spacing Scale */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-9: 9px;
+  --spacing-10: 10px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-18: 18px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-56: 56px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --spacing-92: 92px;
+
+  /* Border Radii */
+  --radius-cards: 40px;
+  --radius-inputs: 100px;
+  --radius-buttons: 800px;
+  --radius-default: 40px;
+}
+
+/* Custom Utilities for Typography Scale */
+@utility text-body-sm {
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+@utility text-body {
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+@utility text-subheading {
+  font-size: 30px;
+  line-height: 1.11;
+}
+
+@utility text-heading-sm {
+  font-family: var(--font-pp-neue-corp-compact-ultrabold);
+  font-size: 32px;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  font-feature-settings: "ss06", "ss10";
+}
+
+@utility text-heading {
+  font-family: var(--font-pp-neue-corp-compact-ultrabold);
+  font-size: 56px;
+  line-height: 0.94;
+  letter-spacing: 0.02em;
+  font-feature-settings: "ss06", "ss10";
+}
+
+@utility text-display {
+  font-family: var(--font-pp-neue-corp-compact-ultrabold);
+  font-size: 96px;
+  line-height: 0.94;
+  letter-spacing: 0.02em;
+  font-feature-settings: "ss06", "ss10";
+}
+
+@utility font-display {
+  font-family: var(--font-pp-neue-corp-compact-ultrabold);
+  font-feature-settings: "ss06", "ss10";
+  letter-spacing: 0.02em;
+}
+
+@utility font-body {
+  font-family: var(--font-dm-sans);
+}
+
+/* Custom scrollbars and styling resets */
+body {
+  background-color: var(--color-basalt-canvas);
+  color: var(--color-abyssal-ink);
+  font-family: var(--font-dm-sans);
+}
+
+/* Dither and pixel-art textures */
+.pixel-pattern {
+  background-image: radial-gradient(var(--color-abyssal-ink) 1px, transparent 1px);
+  background-size: 8px 8px;
+  opacity: 0.06;
+}
+
+.pixel-pattern-orange {
+  background-image: radial-gradient(var(--color-pure-white) 1.5px, transparent 1.5px);
+  background-size: 10px 10px;
+  opacity: 0.15;
+}
+
+/* Smooth custom animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+@keyframes bounceHorizontal {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+.animate-bounce-horizontal {
+  animation: bounceHorizontal 1.5s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
