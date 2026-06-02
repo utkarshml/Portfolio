@@ -18,7 +18,8 @@ import {
   Mail,
   Trophy,
   Award,
-  Send
+  Send,
+  ArrowUp
 } from "lucide-react";
 
 // Caldera Colors from Design Reference
@@ -285,6 +286,7 @@ const CERTIFICATIONS_DATA = [
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const [activeExperience, setActiveExperience] = useState<number>(0);
   const [activeRole, setActiveRole] = useState<"ai" | "fullstack" | "backend" | "frontend">("ai");
   const [typedLogs, setTypedLogs] = useState<string[]>([]);
@@ -311,8 +313,9 @@ export default function Home() {
 
   const roles = [
     { id: "ai", label: "AI Engineer", icon: Cpu, color: "bg-digital-orange" },
-    { id: "fullstack", label: "Full Stack Developer", icon: Layout, color: "bg-cyber-violet" },
+
     { id: "backend", label: "Backend Developer", icon: Database, color: "bg-abyssal-ink" },
+    { id: "fullstack", label: "Full Stack Developer", icon: Layout, color: "bg-cyber-violet" },
     { id: "frontend", label: "Frontend Developer", icon: Code, color: "bg-pixel-glare" }
   ] as const;
 
@@ -371,12 +374,20 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      setShowScrollTop(window.scrollY > 300);
     };
     // Trigger immediately to handle page refreshes in scrolled position
     handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
 
   const copyToClipboard = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
@@ -750,7 +761,7 @@ export default function Home() {
     <div className="relative flex flex-col min-h-screen selection:bg-digital-orange selection:text-pure-white overflow-x-hidden">
 
       {/* Decorative Brand Accents (Large purely decorative violet shape as Hero background element) */}
-      <div className="absolute right-[-100px] top-[100px] w-[600px] h-[600px] rounded-full bg-cyber-violet opacity-[0.08] blur-3xl pointer-events-none animate-pulse-glow" />
+      <div className="absolute right-[-100px] top-[100px] w-[600px] h-[600px] rounded-full bg-digital-orange opacity-[0.08] blur-3xl pointer-events-none animate-pulse-glow" />
       <div className="absolute top-[400px] right-[-150px] w-[500px] h-[500px] rounded-full bg-digital-orange opacity-[0.06] blur-3xl pointer-events-none" />
 
       {/* Pixelated Canvas Texture Overlay */}
@@ -773,7 +784,7 @@ export default function Home() {
           : "top-0 w-full rounded-none mt-[40px]  py-[15px] border border-transparent bg-transparent shadow-none"
           }`}
       >
-        <div className="max-w-[1750px] mx-auto flex items-center justify-between">
+        <div className="max-w-[1750px] px-[30px] lg:px-[10px] mx-auto flex items-center justify-between">
           <motion.div
             layout
             transition={{
@@ -791,7 +802,7 @@ export default function Home() {
                 stiffness: 140,
                 damping: 22,
               }}
-              className={`bg-digital-orange flex flex-wrap p-[2px] rounded-sm shadow-[3px_3px_0px_0px_#070607] ${isScrolled ? "w-[30px] h-[30px]" : "w-[27px] h-[27px]"
+              className={`bg-digital-orange flex flex-wrap p-[2px] rounded-sm shadow-[3px_3px_0px_0px_#070607] ${isScrolled ? "w-[30px] h-[30px]" : "w-[30px] h-[30px]"
                 }`}
             >
               <div className="w-1/2 h-1/2 bg-pure-white" />
@@ -806,7 +817,7 @@ export default function Home() {
                 stiffness: 140,
                 damping: 22,
               }}
-              className={`uppercase pt-[8px] tracking-wider font-display select-none ${isScrolled ? "text-body hidden" : "text-heading-sm"
+              className={`uppercase pt-[8px] hidden  md:blocktracking-wider font-display select-none ${isScrolled ? "text-body hidden" : "text-heading-sm lg:block"
                 }`}
             >
               UTKARSH <span className="text-cyber-violet">JAISWAL</span>
@@ -836,7 +847,7 @@ export default function Home() {
         <div className="max-w-[1700px] mx-auto flex flex-col lg:flex-row gap-56 items-center">
 
           {/* Left Column: Heading and info */}
-          <div className="flex-grow flex-shrink-0 lg:w-[55%] flex flex-col items-start text-left gap-24">
+          <div className="flex-grow flex-shrink-0 lg:w-[55%] flex flex-col items-center lg:items-start text-left gap-24">
 
             {/* Tag / Badge */}
             <div className="inline-flex items-center gap-8 bg-pixel-glare border border-abyssal-ink px-[28px] py-[12px] rounded-buttons font-body text-body-sm text-abyssal-ink shadow-[2.5px_2.5px_0px_0px_#070607] hover:scale-105 transition-transform duration-200">
@@ -845,20 +856,20 @@ export default function Home() {
             </div>
 
             {/* Display Headings */}
-            <h1 className="text-display font-display text-abyssal-ink uppercase select-none tracking-tight leading-[0.9] text-[64px] sm:text-[88px] lg:text-[130px]">
+            <h1 className="text-display font-display text-center lg:text-left text-abyssal-ink uppercase select-none tracking-tight leading-[0.9] text-[50px] sm:text-[88px] lg:text-[130px]">
               BUILDING <span className="text-digital-orange">AI</span> PRODUCTS <br />
               THAT SOLVE REAL PROBLEMS
             </h1>
 
             {/* Sub-description */}
-            <p className="text-abyssal-ink font-body max-w-2xl leading-relaxed mt-4 text-[18px]">
+            <p className="text-abyssal-ink hidden lg:block font-body max-w-2xl leading-relaxed mt-4 text-[18px]">
               Full Stack Engineer focused on AI, automation, and user-centric products. Building solutions that combine intelligent systems with practical business value.
             </p>
 
             {/* Interactive Role Selector Chips */}
-            <div className="w-full flex flex-col gap-10 mt-8">
+            <div className="w-full flex  items-center lg:items-start flex-col gap-10 mt-8">
               <span className="text-[11px] font-body font-bold uppercase tracking-widest text-abyssal-ink/50 pl-4">SELECT CORE PROFILE</span>
-              <div className="flex flex-wrap gap-8">
+              <div className="flex justify-center flex-wrap gap-8">
                 {roles.map((role) => {
                   const Icon = role.icon;
                   const isActive = activeRole === role.id;
@@ -898,7 +909,7 @@ export default function Home() {
           <div className="flex-grow lg:w-[45%] w-full flex justify-center items-center">
 
             {/* Visual Module Container with 40px rounded corners - Made larger */}
-            <div className="relative w-full max-w-[800px] aspect-[4/3] bg-ash-white border-2 border-abyssal-ink rounded-cards p-40 flex flex-col justify-between overflow-hidden shadow-[10px_10px_0px_0px_#070607] group hover:scale-[1.01] transition-transform duration-300">
+            <div className="relative w-full max-w-[800px] aspect-[1/1.5] lg:aspect-[4/3] bg-ash-white border-2 border-abyssal-ink lg:rounded-cards rounded-[24px] p-20 lg:p-32 flex flex-col justify-between overflow-hidden shadow-[10px_10px_0px_0px_#070607] group hover:scale-[1.01] transition-transform duration-300">
 
               {/* Internal Grid pattern */}
               <div className="absolute inset-0 pixel-pattern opacity-10 pointer-events-none" />
@@ -913,7 +924,7 @@ export default function Home() {
               </div>
 
               {/* Main Log Screen simulating terminal feedback - Expanded */}
-              <div className="flex-1 my-24 bg-abyssal-ink text-pure-white p-24 rounded-default border border-abyssal-ink relative font-mono text-[13px] flex flex-col gap-10 justify-start overflow-y-auto leading-relaxed select-none min-h-[180px]">
+              <div className="flex-1 my-24 bg-abyssal-ink text-pure-white p-24 rounded-[12px] lg:rounded-default border border-abyssal-ink relative font-mono text-[13px] flex flex-col gap-10 justify-start overflow-y-auto leading-relaxed select-none min-h-[180px]">
 
                 {/* Typed Logs */}
                 {typedLogs.map((log, index) => (
@@ -970,14 +981,14 @@ export default function Home() {
 
           <div className="flex flex-col gap-10">
             <span className="text-body-sm font-body font-medium uppercase tracking-wider text-cyber-violet">CORE COMPETENCIES</span>
-            <h2 className="text-heading text-[170px] font-bold text-abyssal-ink  font-pp-neue-corp-compact-ultrabold leading-none">ENGINEERING PILLARS</h2>
+            <h2 className="text-heading text-6xl lg:text-[170px] font-bold text-abyssal-ink  font-pp-neue-corp-compact-ultrabold leading-none">ENGINEERING PILLARS</h2>
 
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-32">
 
             {/* Card 1: AI Engineering (Text top, Graphic bottom) */}
-            <div className="bg-ash-white border-2 border-abyssal-ink rounded-cards p-32 md:p-40 flex flex-col justify-between shadow-[6px_6px_0px_0px_#070607] hover:shadow-[10px_10px_0px_0px_#fc5000] hover:translate-y-[-4px] transition-all duration-300 group">
+            <div className="bg-ash-white border-2 border-abyssal-ink rounded-[24px] lg:rounded-cards p-6 md:p-40 flex flex-col justify-between shadow-[6px_6px_0px_0px_#070607] hover:shadow-[10px_10px_0px_0px_#fc5000] hover:translate-y-[-4px] transition-all duration-300 group">
               <div className="flex flex-col gap-16">
                 <div className="flex justify-between items-center">
                   <span className="text-[11px] font-mono font-bold tracking-widest text-digital-orange bg-digital-orange/10 px-8 py-4 rounded-buttons border border-digital-orange/20 uppercase">
@@ -1011,7 +1022,7 @@ export default function Home() {
                 </ul>
 
                 {/* Tech Tags */}
-                <div className="flex flex-wrap gap-6 mt-4">
+                <div className="flex flex-wrap gap-3 lg:gap-6 mt-4">
                   {["LangChain", "LlamaIndex", "Pinecone", "Python"].map((tag) => (
                     <span key={tag} className="text-[10px] font-mono font-medium bg-basalt-canvas border border-abyssal-ink/10 px-8 py-2 rounded-buttons text-abyssal-ink/80">
                       {tag}
@@ -1021,7 +1032,7 @@ export default function Home() {
               </div>
 
               {/* AI Engineer Image */}
-              <div className="my-24 w-full bg-pure-white border border-abyssal-ink/20 rounded-default overflow-hidden aspect-video relative shadow-[2px_2px_0px_0px_#070607]">
+              <div className="my-24 w-full bg-pure-white border  border-abyssal-ink/20 rounded-[12px] lg:rounded-default overflow-hidden aspect-video relative shadow-[2px_2px_0px_0px_#070607]">
                 <img
                   src="/ai_engineer.png"
                   alt="AI Engineering illustration"
@@ -1031,9 +1042,9 @@ export default function Home() {
             </div>
 
             {/* Card 2: Full Stack Development (Graphic top, Text bottom) */}
-            <div className="bg-ash-white border-2 border-abyssal-ink rounded-cards p-32 md:p-40 flex flex-col justify-between shadow-[6px_6px_0px_0px_#070607] hover:shadow-[10px_10px_0px_0px_#524ae9] hover:translate-y-[-4px] transition-all duration-300 group">
+            <div className="bg-ash-white border-2 border-abyssal-ink rounded-[12px] lg:rounded-cards p-6 md:p-40 flex flex-col justify-between shadow-[6px_6px_0px_0px_#070607] hover:shadow-[10px_10px_0px_0px_#524ae9] hover:translate-y-[-4px] transition-all duration-300 group">
               {/* Full Stack Dev Image */}
-              <div className="my-24 w-full bg-pure-white border border-abyssal-ink/20 rounded-default overflow-hidden aspect-video relative shadow-[2px_2px_0px_0px_#070607] order-first">
+              <div className="my-24 w-full bg-pure-white border border-abyssal-ink/20 rounded-[12px] lg:rounded-default overflow-hidden aspect-video relative shadow-[2px_2px_0px_0px_#070607] order-first">
                 <img
                   src="/fullstack_dev.png"
                   alt="Full Stack Development illustration"
@@ -1075,7 +1086,7 @@ export default function Home() {
                 </ul>
 
                 {/* Tech Tags */}
-                <div className="flex flex-wrap gap-6 mt-4">
+                <div className="flex flex-wrap gap-3 lg:gap-6 mt-4">
                   {["React", "Next.js", "FastAPI", "PostgreSQL"].map((tag) => (
                     <span key={tag} className="text-[10px] font-mono font-medium bg-basalt-canvas border border-abyssal-ink/10 px-8 py-2 rounded-buttons text-abyssal-ink/80">
                       {tag}
@@ -1086,9 +1097,9 @@ export default function Home() {
             </div>
 
             {/* Card 3: System Design (Graphic top, Text bottom) */}
-            <div className="bg-ash-white border-2 border-abyssal-ink rounded-cards p-32 md:p-40 flex flex-col justify-between shadow-[6px_6px_0px_0px_#070607] hover:shadow-[10px_10px_0px_0px_#070607] hover:translate-y-[-4px] transition-all duration-300 group">
+            <div className="bg-ash-white border-2 border-abyssal-ink rounded-[12px] lg:rounded-cards p-6 md:p-40 flex flex-col justify-between shadow-[6px_6px_0px_0px_#070607] hover:shadow-[10px_10px_0px_0px_#070607] hover:translate-y-[-4px] transition-all duration-300 group">
               {/* System Design Image */}
-              <div className="my-24 w-full bg-pure-white border border-abyssal-ink/20 rounded-default overflow-hidden aspect-video relative shadow-[2px_2px_0px_0px_#070607] order-first">
+              <div className="my-24 w-full bg-pure-white border border-abyssal-ink/20 rounded-[12px] lg:rounded-default overflow-hidden aspect-video relative shadow-[2px_2px_0px_0px_#070607] order-first">
                 <img
                   src="/system_design.png"
                   alt="System Design illustration"
@@ -1130,7 +1141,7 @@ export default function Home() {
                 </ul>
 
                 {/* Tech Tags */}
-                <div className="flex flex-wrap gap-6 mt-4">
+                <div className="flex flex-wrap gap-3 lg:gap-6 mt-4">
                   {["System Architecture", "Docker", "AWS", "Nginx"].map((tag) => (
                     <span key={tag} className="text-[10px] font-mono font-medium bg-basalt-canvas border border-abyssal-ink/10 px-8 py-2 rounded-buttons text-abyssal-ink/80">
                       {tag}
@@ -1141,7 +1152,7 @@ export default function Home() {
             </div>
 
             {/* Card 4: Problem Solving (Text top, Graphic bottom) */}
-            <div className="bg-digital-orange border-2 border-abyssal-ink rounded-cards p-32 md:p-40 flex flex-col justify-between shadow-[6px_6px_0px_0px_#070607] hover:shadow-[10px_10px_0px_0px_#524ae9] hover:translate-y-[-4px] transition-all duration-300 text-pure-white group">
+            <div className="bg-digital-orange border-2 border-abyssal-ink rounded-[12px] lg:rounded-cards p-6 md:p-40 flex flex-col justify-between shadow-[6px_6px_0px_0px_#070607] hover:shadow-[10px_10px_0px_0px_#524ae9] hover:translate-y-[-4px] transition-all duration-300 text-pure-white group">
               <div className="flex flex-col gap-16">
                 <div className="flex items-center gap-8">
                   <span className="text-[11px] font-mono font-bold tracking-widest text-pixel-glare bg-pure-white/15 px-8 py-4 rounded-buttons border border-pure-white/25 uppercase">
@@ -1175,7 +1186,7 @@ export default function Home() {
                 </ul>
 
                 {/* Tech Tags */}
-                <div className="flex flex-wrap gap-6 mt-4">
+                <div className="flex flex-wrap gap-3 lg:gap-6 mt-4">
                   {["Algorithms", "Data Structures", "Big-O Analysis"].map((tag) => (
                     <span key={tag} className="text-[10px] font-mono font-medium bg-pure-white/10 border border-pure-white/15 px-8 py-2 rounded-buttons text-pure-white">
                       {tag}
@@ -1185,7 +1196,7 @@ export default function Home() {
               </div>
 
               {/* Monochrome outline graphic on bottom */}
-              <div className="my-24 w-full bg-abyssal-ink border border-pure-white/20 rounded-default p-16 flex items-center justify-center aspect-video relative overflow-hidden shadow-[2px_2px_0px_0px_#070607]">
+              <div className="my-24 w-full bg-abyssal-ink border border-pure-white/20 rounded-[12px] lg:rounded-default p-16 flex items-center justify-center aspect-video relative overflow-hidden shadow-[2px_2px_0px_0px_#070607]">
                 <div className="absolute inset-0 pixel-pattern-orange opacity-20 pointer-events-none" />
                 <div className="w-[85%] h-full flex items-center justify-center relative">
                   <svg className="w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
@@ -1217,7 +1228,7 @@ export default function Home() {
 
           <div className="flex flex-col gap-10">
             <span className="text-body-sm font-body text-end font-medium uppercase tracking-wider text-digital-orange">SELECTED LABS</span>
-            <h2 className="text-heading font-display text-[170px] font-bold text-end text-abyssal-ink uppercase leading-none">FEATURED SYSTEMS SHOWROOM</h2>
+            <h2 className="text-heading font-display text-6xl lg:text-[170px] font-bold text-end text-abyssal-ink uppercase leading-none">FEATURED SYSTEMS SHOWROOM</h2>
 
           </div>
 
@@ -1345,7 +1356,7 @@ export default function Home() {
               const isOpen = activeProject === project.id;
               const isViolet = project.color === "cyber-violet";
               return (
-                <div key={project.id} className="border-2 border-abyssal-ink bg-ash-white rounded-cards overflow-hidden shadow-[4px_4px_0px_0px_#070607] transition-all duration-300">
+                <div key={project.id} className="border-2 border-abyssal-ink bg-ash-white rounded-[12px] lg:rounded-cards overflow-hidden shadow-[4px_4px_0px_0px_#070607] transition-all duration-300">
                   <div
                     onClick={() => setActiveProject(isOpen ? -1 : project.id)}
                     className="p-20 bg-basalt-canvas/20 border-b border-abyssal-ink flex justify-between items-center cursor-pointer hover:bg-basalt-canvas/40"
@@ -1390,9 +1401,11 @@ export default function Home() {
       </section>
 
       {/* TECH STACK VERTICAL FLIP MARQUEE */}
-      <section className="w-full px-24  py-18  ">
-        <div className="max-w-[1200px] h-[200px]  mx-auto">
-          <div className="bg-pure-white  h-[170px]  border-abyssal-ink rounded-[20px]  flex flex-row items-center justify-between divide-x-2 divide-dashed divide-abyssal-ink/15 overflow-x-auto scrollbar-none py-12">
+      <section className="w-full px-24 py-18">
+        <div className="max-w-[1200px] h-[200px] mx-auto flex flex-col justify-center">
+
+          {/* Desktop Version: Cascade Vertical Flipping Slots */}
+          <div className="bg-pure-white h-[170px] border-abyssal-ink rounded-[20px] hidden md:flex flex-row items-center justify-between divide-x-2 divide-dashed divide-abyssal-ink/15 overflow-x-auto scrollbar-none py-12">
             {TECH_SLOTS_DATA.map((slot) => {
               return (
                 <div
@@ -1425,6 +1438,64 @@ export default function Home() {
               );
             })}
           </div>
+
+          {/* Mobile Version: Continuous Horizontal Scrolling Loop (Right to Left) */}
+          <div className="flex md:hidden bg-pure-white h-[150px]  rounded-[20px] items-center overflow-hidden py-12 relative w-full ">
+            {/* Fade out edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-pure-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-pure-white to-transparent z-10 pointer-events-none" />
+
+            <div className="flex w-max flex-nowrap">
+              <motion.div
+                className="flex gap-24 pr-24 items-center flex-shrink-0"
+                animate={{ x: ["0%", "-100%"] }}
+                transition={{
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 25,
+                  ease: "linear"
+                }}
+              >
+                {TECH_SLOTS_DATA.flatMap(s => s.items).map((item, itemIdx) => (
+                  <div key={`mob-1-${itemIdx}`} className="flex items-center justify-center flex-shrink-0 w-[80px]">
+                    <img
+                      src={item.logo}
+                      alt={item.name}
+                      className="h-[36px] max-h-[36px] max-w-[70px] object-contain opacity-85 filter grayscale"
+                      onError={(e) => {
+                        (e.target as HTMLElement).style.display = 'none';
+                      }}
+                    />
+                  </div>
+                ))}
+              </motion.div>
+
+              <motion.div
+                className="flex gap-24 pr-24 items-center flex-shrink-0"
+                animate={{ x: ["0%", "-100%"] }}
+                transition={{
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 25,
+                  ease: "linear"
+                }}
+              >
+                {TECH_SLOTS_DATA.flatMap(s => s.items).map((item, itemIdx) => (
+                  <div key={`mob-2-${itemIdx}`} className="flex items-center justify-center flex-shrink-0 w-[80px]">
+                    <img
+                      src={item.logo}
+                      alt={item.name}
+                      className="h-[36px] max-h-[36px] max-w-[70px] object-contain opacity-85 filter grayscale"
+                      onError={(e) => {
+                        (e.target as HTMLElement).style.display = 'none';
+                      }}
+                    />
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -1435,7 +1506,7 @@ export default function Home() {
           {/* Header */}
           <div className="flex flex-col gap-10">
             <span className="text-body-sm font-body font-medium uppercase tracking-wider text-digital-orange font-bold">SYSTEM METRICS</span>
-            <h2 className="text-heading text-[170px] font-bold font-display text-abyssal-ink uppercase leading-none">PROFESSIONAL RECORD</h2>
+            <h2 className="text-heading text-6xl  lg:text-[170px] font-bold font-display text-abyssal-ink uppercase leading-none">PROFESSIONAL RECORD</h2>
 
           </div>
 
@@ -1467,7 +1538,7 @@ export default function Home() {
                     </div>
 
                     {/* Node Card */}
-                    <div className={`flex-1 border-4 border-abyssal-ink rounded-cards p-20 flex flex-col gap-6 shadow-[4px_4px_0px_0px_#070607] transition-all duration-300 ${isActive
+                    <div className={`flex-1 border-4 border-abyssal-ink rounded-xl  lg:rounded-cards p-20 flex flex-col gap-6 shadow-[4px_4px_0px_0px_#070607] transition-all duration-300 ${isActive
                       ? "bg-pure-white translate-x-4 shadow-[6px_6px_0px_0px_#070607]"
                       : "bg-basalt-canvas/40 hover:bg-pure-white/80 hover:translate-x-2"
                       }`}>
@@ -1488,7 +1559,7 @@ export default function Home() {
             </div>
 
             {/* Right Column: Console CRT Terminal */}
-            <div className="lg:col-span-7 bg-abyssal-ink border-4 border-abyssal-ink rounded-cards p-24 md:p-32 shadow-[8px_8px_0px_0px_#070607] text-pure-white min-h-[460px] flex flex-col justify-between relative overflow-hidden">
+            <div className="lg:col-span-7 bg-abyssal-ink border-4 border-abyssal-ink rounded-xl lg:rounded-cards p-24 md:p-32 shadow-[8px_8px_0px_0px_#070607] text-pure-white min-h-[460px] flex flex-col justify-between relative overflow-hidden">
 
               {/* Scanlines / Retro overlay */}
               <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-pure-white/5 to-transparent opacity-20" />
@@ -1565,7 +1636,7 @@ export default function Home() {
       </section>
 
       {/* SYSTEM MILESTONES & CERTIFICATES */}
-      <section id="milestones" className="w-full hidden px-24 py-56 bg-basalt-canvas border-t border-abyssal-ink/10">
+      <section id="milestones" className="w-full hidden px-24 py-24 lg:py-56 bg-basalt-canvas border-t border-abyssal-ink/10">
         <div className="max-w-[1700px] mx-auto flex flex-col gap-48">
 
           <div className="flex flex-col gap-10">
@@ -1821,7 +1892,7 @@ export default function Home() {
                   </p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleContactSubmit} className="flex flex-col gap-28">
+                <form onSubmit={handleContactSubmit} className="flex flex-col gap-20 lg:gap-28">
                   {/* Name field */}
                   <div className="flex flex-col gap-8">
                     <label htmlFor="contact-name" className="font-mono text-[10px] font-extrabold uppercase tracking-wider text-pure-white/70">
@@ -2004,6 +2075,22 @@ export default function Home() {
 
         </div>
       </footer>
+
+      {/* Floating Scroll To Top Button */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 20 }}
+            onClick={scrollToTop}
+            className="fixed bottom-24 right-24 md:bottom-32 md:right-32 z-50 bg-digital-orange text-pure-white border-2 border-abyssal-ink p-12 md:p-16 rounded-full shadow-[3px_3px_0px_0px_#070607] hover:scale-105 active:scale-95 transition-transform duration-200"
+            aria-label="Scroll to top"
+          >
+            <ArrowUp size={20} className="md:w-6 md:h-6" />
+          </motion.button>
+        )}
+      </AnimatePresence>
 
     </div>
   );
